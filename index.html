@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secure Programming e-Portfolio | TTTN3133</title>
+<meta name="description" content="e-Portfolio for TTTN3133 Secure Programming: vulnerability fixes, live demos and reflections.">
+<style>
+  :root{
+    --bg:#f6f8fb; --card:#ffffff; --text:#1c2430; --muted:#5b6675;
+    --primary:#2563eb; --primary-dark:#1d4ed8; --accent:#0ea5a4; --border:#e3e8ef;
+    --shadow:0 4px 16px rgba(20,35,60,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#0e131b; --card:#161d28; --text:#e8edf4; --muted:#9aa6b6; --border:#243040; --shadow:0 4px 16px rgba(0,0,0,.35);}
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:70px}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  a{color:var(--primary)}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  nav{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--border);box-shadow:var(--shadow)}
+  nav .container{display:flex;align-items:center;justify-content:space-between;min-height:58px;flex-wrap:wrap;gap:6px}
+  .brand{font-weight:700;color:var(--text);text-decoration:none}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
+  nav ul a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:500;font-size:.95rem}
+  nav ul a:hover,nav ul a:focus{background:var(--bg);color:var(--primary)}
+
+  header.hero{background:linear-gradient(135deg,#1e3a8a,#2563eb 55%,#0ea5a4);color:#fff;padding:72px 0 64px}
+  header.hero h1{margin:0 0 8px;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.2}
+  header.hero p{margin:6px 0;max-width:720px;opacity:.95}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:999px;font-size:.88rem}
+
+  section{padding:56px 0}
+  section h2{margin:0 0 6px;font-size:1.7rem}
+  .lead{color:var(--muted);margin:0 0 28px;max-width:720px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:22px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .card .body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .card h3{margin:0;font-size:1.15rem}
+  .card .tag{font-size:.78rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}
+  .card p{margin:0;color:var(--muted)}
+  .reflection{border-left:3px solid var(--primary);padding-left:12px;font-style:italic}
+  .video{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  .btn{display:inline-block;margin-top:auto;align-self:flex-start;background:var(--primary);color:#fff;text-decoration:none;padding:10px 18px;border-radius:9px;font-weight:600}
+  .btn:hover,.btn:focus{background:var(--primary-dark)}
+
+  .team{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:8px}
+  .member{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .member h3{margin:0 0 4px;font-size:1.02rem}
+  .member p{margin:2px 0;font-size:.9rem;color:var(--muted)}
+
+  .project-wrap{display:grid;grid-template-columns:1fr;gap:22px}
+  .skills{display:flex;flex-wrap:wrap;gap:10px}
+  .skill{background:var(--card);border:1px solid var(--border);padding:8px 16px;border-radius:999px;font-weight:500}
+  .panel{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+  ul.resources{margin:0;padding-left:20px;color:var(--muted)}
+  ul.resources li{margin:6px 0}
+
+  footer{background:var(--card);border-top:1px solid var(--border);padding:28px 0;text-align:center;color:var(--muted);font-size:.92rem}
+  footer p{margin:4px 0}
+  @media (max-width:560px){ section{padding:40px 0} header.hero{padding:52px 0 44px} }
+</style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+  <div class="container">
+    <a class="brand" href="#home">Secure Programming e-Portfolio</a>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#labs">Labs</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#reflection">Reflection</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container">
+    <h1>TTTN3133 Secure Programming e-Portfolio</h1>
+    <p>[WRITE YOUR INTRO: 2–3 sentences describing the scenario of your project.]</p>
+    <div class="badges">
+      <span class="badge">Programme: TTTN3133 - SECURE PROGRAMMING</span>
+      <span class="badge">Instructor: TS. DR. NUR HANIS SABRINA BINTI SUHAIMI</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section aria-labelledby="team-title">
+    <div class="container">
+      <h2 id="team-title">Group Members</h2>
+      <p class="lead">The team behind this project and what each member contributed.</p>
+      <div class="team">
+        <article class="member">
+          <h3>NUR ALIYA NAJWA BINTI SUKRI</h3>
+          <p><strong>Matric No:</strong> A212086</p>
+          <p><strong>Role:</strong> [Your Role]</p>
+          <p><strong>Contribution:</strong> [Contribution]</p>
+        </article>
+        <article class="member">
+          <h3>NUR DHIYA SEFFIYA BINTI EKMAL REEZAL</h3>
+          <p><strong>Matric No:</strong> A212109</p>
+          <p><strong>Role:</strong> [Your Role]</p>
+          <p><strong>Contribution:</strong> [Contribution]</p>
+        </article>
+        <article class="member">
+          <h3>NUR IMAN DARWISY BINTI FAUZI</h3>
+          <p><strong>Matric No:</strong> A212291</p>
+          <p><strong>Role:</strong> [Your Role]</p>
+          <p><strong>Contribution:</strong> [Contribution]</p>
+        </article>
+        <article class="member">
+          <h3>ALIFYA FAZILATUN NISA</h3>
+          <p><strong>Matric No:</strong> A222944</p>
+          <p><strong>Role:</strong> [Your Role]</p>
+          <p><strong>Contribution:</strong> [Contribution]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="labs" aria-labelledby="labs-title">
+    <div class="container">
+      <h2 id="labs-title">Labs: Vulnerability Solutions</h2>
+      <p class="lead">Six cases showing a live demo of each vulnerability fix.</p>
+      <div class="grid">
+
+        <article class="card">
+          <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Case 1: Login Test video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div class="body">
+            <span class="tag">Case 1</span>
+            <h3>Login Test</h3>
+            <p>Live code vulnerability implementation and fix for the login flow.</p>
+            <p class="reflection">[Reflection: 2–3 sentences]</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Case 2: Data 1 video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div class="body">
+            <span class="tag">Case 2</span>
+            <h3>Data 1</h3>
+            <p>Live code vulnerability implementation and fix for data handling.</p>
+            <p class="reflection">[Reflection: 2–3 sentences]</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Case 3: Data 2 video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div class="body">
+            <span class="tag">Case 3</span>
+            <h3>Data 2</h3>
+            <p>Live code vulnerability implementation and fix for data protection.</p>
+            <p class="reflection">[Reflection: 2–3 sentences]</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Case 4: SQL Injection video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div class="body">
+            <span class="tag">Case 4</span>
+            <h3>SQL Injection</h3>
+            <p>Live code vulnerability implementation and fix against SQL injection.</p>
+            <p class="reflection">[Reflection: 2–3 sentences]</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID_5" title="Case 5: Placeholder 1 video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div class="body">
+            <span class="tag">Case 5</span>
+            <h3>Placeholder 1</h3>
+            <p>[Short description of this case]</p>
+            <p class="reflection">[Reflection: 2–3 sentences]</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="video"><iframe src="https://www.youtube.com/embed/VIDEO_ID_6" title="Case 6: Placeholder 2 video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div class="body">
+            <span class="tag">Case 6</span>
+            <h3>Placeholder 2</h3>
+            <p>[Short description of this case]</p>
+            <p class="reflection">[Reflection: 2–3 sentences]</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="container">
+      <h2 id="projects-title">Projects</h2>
+      <p class="lead">The main project these vulnerability fixes were applied to.</p>
+      <div class="project-wrap">
+        <article class="card">
+          <div class="video"><iframe src="https://www.youtube.com/embed/PROJECT_VIDEO_ID" title="Project VSR video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <div class="body">
+            <span class="tag">Project 2</span>
+            <h3>[PROJECT NAME]</h3>
+            <p><strong>Problem statement:</strong> [1–2 sentences]</p>
+            <p class="reflection">[Project reflection: 2–3 sentences]</p>
+            <a class="btn" href="https://github.com/a212086-hash/REPO-NAME" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reflection" aria-labelledby="reflection-title">
+    <div class="container">
+      <h2 id="reflection-title">Reflection &amp; Learning Journey</h2>
+      <div class="panel">
+        <p>[REFLECTION &amp; LEARNING JOURNEY: 3–4 sentences about what you learned while completing this project.]</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="container">
+      <h2 id="skills-title">Skills &amp; Tech Stack</h2>
+      <p class="lead">Tools and concepts applied in this project.</p>
+      <div class="skills" role="list">
+        <span class="skill" role="listitem">SQL Injection</span>
+        <span class="skill" role="listitem">Python</span>
+        <span class="skill" role="listitem">Room</span>
+        <span class="skill" role="listitem">Retrofit</span>
+        <span class="skill" role="listitem">Firebase Firestore</span>
+        <span class="skill" role="listitem">[Add your own]</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="resources" aria-labelledby="resources-title">
+    <div class="container">
+      <h2 id="resources-title">Resources</h2>
+      <div class="panel">
+        <ul class="resources">
+          <li>[API / library 1]</li>
+          <li>[API / library 2]</li>
+          <li><strong>AI assistance acknowledgement:</strong> [State which AI tools were used (e.g. Claude) and for what purpose.]</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p><strong>NUR ALIYA NAJWA BINTI SUKRI</strong> | A212086</p>
+    <p>NUR DHIYA SEFFIYA BINTI EKMAL REEZAL (A212109) &middot; NUR IMAN DARWISY BINTI FAUZI (A212291) &middot; ALIFYA FAZILATUN NISA (A222944)</p>
+    <p>TTTN3133 Secure Programming &copy; <span id="year">2026</span></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
